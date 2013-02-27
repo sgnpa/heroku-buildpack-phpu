@@ -37,7 +37,7 @@ touch $BUILD_DIR/data/install.lock
 touch $BUILD_DIR/data/updatetime.lock
 touch $BUILD_DIR/data/upgrade.lock
 echo "-----> Writing database to data/config.inc.php"
-cat > $BUILD_DIR/data/config.inc.php <<EOF
+tee $BUILD_DIR/data/config.inc.php <<EOF
 <?php 
 define('UC_DBHOST', $UC_DBHOST);
 define('UC_DBUSER', $UC_DBUSER);
