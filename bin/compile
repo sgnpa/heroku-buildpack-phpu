@@ -59,6 +59,9 @@ export PHP_INI_SCAN_DIR=/app/www
 echo "Launching apache"
 exec /app/apache/bin/httpd -DNO_DETACH
 EOF
+echo "-----> making data dir's"
+echo "BUILD_DIR = $BUILD_DIR"
+ls $BUILD_DIR
 mkdir -p $BUILD_DIR/data/avatar
 mkdir -p $BUILD_DIR/data/avatars
 mkdir -p $BUILD_DIR/data/backup
@@ -72,6 +75,8 @@ touch $BUILD_DIR/data/index.htm
 touch $BUILD_DIR/data/install.lock
 touch $BUILD_DIR/data/updatetime.lock
 touch $BUILD_DIR/data/upgrade.lock
+ls $BUILD_DIR
+ls $BUILD_DIR/data
 echo "-----> Writing database to data/config.inc.php"
 cat > $BUILD_DIR/data/config.inc.php <<EOF
 <?php 
