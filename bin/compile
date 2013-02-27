@@ -23,21 +23,21 @@ cd $BUILD_DIR
 echo "BUILD_DIR = $BUILD_DIR"
 echo "CACHE_DIR = $CACHE_DIR"
 echo "-----> making data dir's"
-mkdir -p $BUILD_DIR/data/avatar
-mkdir -p $BUILD_DIR/data/avatars
-mkdir -p $BUILD_DIR/data/backup
-mkdir -p $BUILD_DIR/data/cache
-mkdir -p $BUILD_DIR/data/logs
-mkdir -p $BUILD_DIR/data/tmp
-mkdir -p $BUILD_DIR/data/view
-chmod -R 777 $BUILD_DIR/data
-chmod 777 $BUILD_DIR/data
-touch $BUILD_DIR/data/index.htm
-touch $BUILD_DIR/data/install.lock
-touch $BUILD_DIR/data/updatetime.lock
-touch $BUILD_DIR/data/upgrade.lock
+mkdir -p $BUILD_DIR/uc/data/avatar
+mkdir -p $BUILD_DIR/uc/data/avatars
+mkdir -p $BUILD_DIR/uc/data/backup
+mkdir -p $BUILD_DIR/uc/data/cache
+mkdir -p $BUILD_DIR/uc/data/logs
+mkdir -p $BUILD_DIR/uc/data/tmp
+mkdir -p $BUILD_DIR/uc/data/view
+chmod -R 777 $BUILD_DIR/uc/data
+chmod 777 $BUILD_DIR/uc/data
+touch $BUILD_DIR/uc/data/index.htm
+touch $BUILD_DIR/uc/data/install.lock
+touch $BUILD_DIR/uc/data/updatetime.lock
+touch $BUILD_DIR/uc/data/upgrade.lock
 echo "-----> Writing database to data/config.inc.php"
-tee $BUILD_DIR/data/config.inc.php <<EOF
+tee $BUILD_DIR/uc/data/config.inc.php <<EOF
 <?php 
 define('UC_DBHOST', '$UC_DBHOST');
 define('UC_DBUSER', '$UC_DBUSER');
@@ -57,15 +57,6 @@ define('UC_MYKEY', '$UC_MYKEY');
 define('UC_DEBUG', false);
 define('UC_PPP', 20);
 EOF
-echo "-----> move app things to www"
-mkdir -p $CACHE_DIR/www
-mv * $CACHE_DIR/www
-mv $CACHE_DIR/www .
-
-# keep Procfile
-if [ -f www/Procfile ]; then
-  mv www/Procfile .
-fi
 
 APACHE_URL="https://s3.amazonaws.com/php-lp/apache-$APACHE_VERSION.tar.gz"
 echo "-----> Bundling Apache version $APACHE_VERSION"
