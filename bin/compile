@@ -23,21 +23,21 @@ cd $BUILD_DIR
 echo "BUILD_DIR = $BUILD_DIR"
 echo "CACHE_DIR = $CACHE_DIR"
 echo "-----> making data dir's"
-mkdir -p $BUILD_DIR/uc/data/avatar
-mkdir -p $BUILD_DIR/uc/data/avatars
-mkdir -p $BUILD_DIR/uc/data/backup
-mkdir -p $BUILD_DIR/uc/data/cache
-mkdir -p $BUILD_DIR/uc/data/logs
-mkdir -p $BUILD_DIR/uc/data/tmp
-mkdir -p $BUILD_DIR/uc/data/view
-chmod -R 777 $BUILD_DIR/uc/data
-chmod 777 $BUILD_DIR/uc/data
-touch $BUILD_DIR/uc/data/index.htm
-touch $BUILD_DIR/uc/data/install.lock
-touch $BUILD_DIR/uc/data/updatetime.lock
-touch $BUILD_DIR/uc/data/upgrade.lock
+mkdir -p $BUILD_DIR/www/data/avatar
+mkdir -p $BUILD_DIR/www/data/avatars
+mkdir -p $BUILD_DIR/www/data/backup
+mkdir -p $BUILD_DIR/www/data/cache
+mkdir -p $BUILD_DIR/www/data/logs
+mkdir -p $BUILD_DIR/www/data/tmp
+mkdir -p $BUILD_DIR/www/data/view
+chmod -R 777 $BUILD_DIR/www/data
+chmod 777 $BUILD_DIR/www/data
+touch $BUILD_DIR/www/data/index.htm
+touch $BUILD_DIR/www/data/install.lock
+touch $BUILD_DIR/www/data/updatetime.lock
+touch $BUILD_DIR/www/data/upgrade.lock
 echo "-----> Writing database to data/config.inc.php"
-tee $BUILD_DIR/uc/data/config.inc.php <<EOF
+tee $BUILD_DIR/www/data/config.inc.php <<EOF
 <?php 
 define('UC_DBHOST', '$UC_DBHOST');
 define('UC_DBUSER', '$UC_DBUSER');
